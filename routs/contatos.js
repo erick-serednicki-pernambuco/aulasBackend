@@ -41,5 +41,16 @@ router.post('/', function(req,res,next){
     res.status(201).json(novoContato);
 });
 
+outer.put('/:id', function(req,res,next){
+    const contatoLocalizado = contatos.find(contato => contato.id === Number(req.params.id));
+    if(!contatoLocalizado){
+        return res.status(404).json("Não Localizado");
+    }
+
+    contatoLocalizado.nome = req.body.nome;
+    contatoLocalizado.numero = req.body.numero;
+    res.status(204).end();    
+});
+
 
 module.exports = router;
