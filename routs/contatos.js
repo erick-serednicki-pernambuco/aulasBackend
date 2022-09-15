@@ -28,6 +28,9 @@ router.get('/', function(req,res,next){
 
 router.get('/:id', function(req,res,next){
     const contato = contatos.find(item => item.id === Number(req.params.id))
+    if(!contato){
+        res.status(404).json("Não encontrado");
+    }
     res.json(contato);
 });
 
@@ -41,7 +44,11 @@ router.post('/', function(req,res,next){
     res.status(201).json(novoContato);
 });
 
+<<<<<<< Updated upstream
 outer.put('/:id', function(req,res,next){
+=======
+router.put('/:id', function(req,res,next){
+>>>>>>> Stashed changes
     const contatoLocalizado = contatos.find(contato => contato.id === Number(req.params.id));
     if(!contatoLocalizado){
         return res.status(404).json("Não Localizado");
@@ -49,6 +56,19 @@ outer.put('/:id', function(req,res,next){
 
     contatoLocalizado.nome = req.body.nome;
     contatoLocalizado.numero = req.body.numero;
+<<<<<<< Updated upstream
+=======
+    return res.json(contatoLocalizado)
+    res.status(204).end();    
+});
+
+router.delete('/:id', function(req,res,next){
+    const localizado = contatos.findIndex(contato => contato.id === Number(req.params.id));
+    if(!localizado < 0){
+        return res.status(404).json("Não Localizado");
+    }
+    contatos.splice(localizado, 1);
+>>>>>>> Stashed changes
     res.status(204).end();    
 });
 
