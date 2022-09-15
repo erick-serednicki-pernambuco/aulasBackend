@@ -45,7 +45,11 @@ router.post('/', function(req,res,next){
 });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 outer.put('/:id', function(req,res,next){
+=======
+router.put('/:id', function(req,res,next){
+>>>>>>> Stashed changes
 =======
 router.put('/:id', function(req,res,next){
 >>>>>>> Stashed changes
@@ -57,7 +61,10 @@ router.put('/:id', function(req,res,next){
     contatoLocalizado.nome = req.body.nome;
     contatoLocalizado.numero = req.body.numero;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     return res.json(contatoLocalizado)
     res.status(204).end();    
 });
@@ -68,6 +75,9 @@ router.delete('/:id', function(req,res,next){
         return res.status(404).json("Não Localizado");
     }
     contatos.splice(localizado, 1);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     res.status(204).end();    
 });
